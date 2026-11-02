@@ -1,0 +1,40 @@
+# LaTeX build artefacts
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# local scratch, never part of the record
+.backups/
+.preview/
+.pv/
+paper/figs/drafts/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# the written documents live with the submission, not in the code repo
+paper/
+briefing/
+
+# evidence and generated output, not the reusable code
+archive/
+results/
