@@ -37,6 +37,7 @@ python -m experiments.safe_region
 python -m experiments.lint_validation
 python -m experiments.symbolic_checks
 python -m experiments.kl_validation
+python archive/audit_v1.py > /dev/null
 
 # The documents are not part of this repository. If you have them beside it,
 # this stage builds them from the numbers the run above just produced.

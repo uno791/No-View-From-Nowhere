@@ -9,7 +9,7 @@ space of models it quantifies over. The assertions that check each claim are
 one line each. All of the difficulty, and all of the scientific content, is
 in sampling that space faithfully.
 
-The project's first test suite is the cautionary case. It built causal
+The v1 suite (archive/v1_suite.py) is the cautionary case. It built causal
 coefficient matrices with
 
     C = np.tril(rng.normal(size=(n, n)) * 0.6, k=-1)

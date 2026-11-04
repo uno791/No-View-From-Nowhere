@@ -40,6 +40,7 @@ documents consume. Neither is tracked here; both are outputs.
     harness/      the new work. Generators, exclusion tests, properties,
                   runner, shrinker, figures.
     experiments/  the empirical studies and the paper's generated tables.
+    archive/      the v1 test suite, frozen. Evidence, not code.
 
 ## The thesis, in one paragraph
 
@@ -200,6 +201,18 @@ that was claimed to stay inside the set.
 The full reduction, step by step, is Table 3 of the paper, emitted by
 `experiments/paper_tables.py` from the shrinker's own trace.
 
+## Reproducing the audit
+
+    python archive/audit_v1.py
+
+Prints the root-count distribution of the v1 generator beside the new sampler
+at several edge densities. At `edge_prob = 1.0` the new sampler reproduces v1
+exactly, which is the control that makes the comparison fair. The v1 generator
+produced 1 root on 3000 of 3000 draws.
+
+The suite itself is kept unchanged in `archive/`, because a claim about what an
+old suite could not find is only checkable if the old suite is still there.
+
 ## Status
 
 | component | state |
@@ -207,6 +220,7 @@ The full reduction, step by step, is Table 3 of the paper, emitted by
 | `core/` | model library. SCMs, interventions, abstractions, sheaves, KL, misalignment |
 | `harness/` | generators, exclusion tests, 16 properties, runner, shrinker, figures |
 | `experiments/` | four studies, the safe region, the KL validation, the symbolic checks, the generated tables |
+| `archive/` | the v1 suite, frozen as evidence. Do not edit |
 
 The paper is 15 pages in Applied Soft Computing format and the supplementary
 is 19, self-contained, holding every proof. Neither is in this repository.
