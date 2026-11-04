@@ -16,28 +16,35 @@
 set -e
 cd "$(dirname "$0")"
 
+# Many systems install Python 3 as python3 only, with no bare "python".
+PY="${PYTHON:-$(command -v python3 || command -v python)}"
+if [ -z "$PY" ]; then
+    echo "No Python interpreter found. Install Python 3.10 or later." >&2
+    exit 1
+fi
+
 if [ "$1" = "quick" ]; then
-    python -m harness.runner --quick --shrink
+    "$PY" -m harness.runner --quick --shrink
     exit 0
 fi
 
 echo "== harness =========================================================="
-python -m harness.runner --trials 2000 --sweeps --shrink
+"$PY" -m harness.runner --trials 2000 --sweeps --shrink
 
 echo "== generated tables and figures ====================================="
-python -m experiments.paper_tables
-python -m harness.figures
+"$PY" -m experiments.paper_tables
+"$PY" -m harness.figures
 
 echo "== experiments ======================================================"
-python -m experiments.rq1_experiment  > /dev/null
-python -m experiments.rq2_experiment  > /dev/null
-python -m experiments.rq3_experiment  > /dev/null
-python -m experiments.empirical_study > /dev/null
-python -m experiments.safe_region
-python -m experiments.lint_validation
-python -m experiments.symbolic_checks
-python -m experiments.kl_validation
-python archive/audit_v1.py > /dev/null
+"$PY" -m experiments.rq1_experiment  > /dev/null
+"$PY" -m experiments.rq2_experiment  > /dev/null
+"$PY" -m experiments.rq3_experiment  > /dev/null
+"$PY" -m experiments.empirical_study > /dev/null
+"$PY" -m experiments.safe_region
+"$PY" -m experiments.lint_validation
+"$PY" -m experiments.symbolic_checks
+"$PY" -m experiments.kl_validation
+"$PY" archive/audit_v1.py > /dev/null
 
 # The documents are not part of this repository. If you have them beside it,
 # this stage builds them from the numbers the run above just produced.
