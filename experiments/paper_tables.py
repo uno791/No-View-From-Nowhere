@@ -315,6 +315,7 @@ def write_macros(res: Dict, path: str) -> None:
 def main() -> None:
     res = run()
     os.makedirs(RESULTS, exist_ok=True)
+    os.makedirs(PAPER, exist_ok=True)
     with open(os.path.join(RESULTS, "paper_tables.json"), "w") as fh:
         json.dump(res, fh, indent=2, default=str)
     write_claims_table(res, os.path.join(PAPER, "claims_table.tex"))

@@ -215,6 +215,7 @@ def main() -> None:
     with open(os.path.join(RESULTS, "figure_data.json"), "w") as fh:
         json.dump(data, fh, indent=2)
     draw(data, "harness_scoreboard")
+    os.makedirs(os.path.join(ROOT, "paper"), exist_ok=True)
     write_macros(data, os.path.join(ROOT, "paper", "sweep_numbers.tex"))
     print(f"wrote {FIGS}/harness_scoreboard.pdf and .png")
     print(f"wrote {ROOT}/paper/sweep_numbers.tex")
