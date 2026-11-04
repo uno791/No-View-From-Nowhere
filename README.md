@@ -235,3 +235,19 @@ Python 3.10 or later with `numpy`, `scipy`, `matplotlib` and `sympy`:
 
 Building the documents additionally needs a LaTeX distribution with
 `tikz-cd`, `booktabs` and `dblfloatfix`.
+
+## License
+
+MIT. See `LICENSE`.
+
+If you use this in published work, please cite the paper rather than the
+repository:
+
+> H. Vallabh, No View From Nowhere: Verifying Relative Causal Knowledge,
+> School of Computer Science and Applied Mathematics, University of the
+> Witwatersrand, 2026.
+
+The framework being reconstructed and verified here is due to G. D'Acunto and
+C. Battiloro, *The Relativity of Causal Knowledge*, Proceedings of the 41st
+Conference on Uncertainty in Artificial Intelligence, PMLR 244, 2025,
+pp. 863-881, and should be cited alongside it.
